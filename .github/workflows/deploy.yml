@@ -21,6 +21,7 @@ jobs:
       - name: Deploy code to server
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
+            git config --global --add safe.directory /home/${{ secrets.SSH_USER }}/FastAPI_HelloWorld &&
             cd /home/${{ secrets.SSH_USER }}/FastAPI_HelloWorld &&
             git pull origin main
           "
